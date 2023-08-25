@@ -54,7 +54,7 @@ const PairAddress = () => {
         ) : (
           <h1>Nothing found</h1>
         )
-      ) : null}
+      ) : <></>}
     </div>
   );
 };
