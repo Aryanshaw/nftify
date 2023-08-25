@@ -7,8 +7,10 @@ import Card from "../Card/Card";
 const TokenAddress = () => {
   const [data, setData] = useState([]);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleTokenSearch = async (query) => {
+    setIsLoading(true);
     try {
       const response = await axios.get(
         `https://api.dexscreener.com/latest/dex/tokens/${query}`
@@ -31,6 +33,7 @@ const TokenAddress = () => {
       setData([]);
       setIsSuccess(false);
     }
+    setIsLoading(false);
   };
 
   return (
@@ -38,7 +41,9 @@ const TokenAddress = () => {
       <h1>Token Address Page</h1>
       <SearchComponent onSearch={handleTokenSearch} isSuccess={isSuccess} />
       <div>
-        {isSuccess && data.length > 0 ? (
+        {isLoading ? (
+          <div className="loader">Loading...</div>
+        ) : isSuccess && data.length > 0 ? (
           <>
             <h1>Token Address search result</h1>
             <div className="card-results">
