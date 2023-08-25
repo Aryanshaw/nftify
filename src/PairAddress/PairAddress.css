@@ -1,11 +1,10 @@
 .content {
-  /* background-color: #da9dd858; */
   padding: 20px;
   margin-left: 250px; 
   height: 100vh;
 }
 .card-results {
-  margin-top: 20px; /* Add some spacing between h1 and card results */
+  margin-top: 20px; 
 }
 
 @media (max-width: 768px) {

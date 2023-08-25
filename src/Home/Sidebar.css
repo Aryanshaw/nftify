@@ -6,6 +6,7 @@
     left: -300px;
     background-color: #333;
     transition: left 0.3s ease;
+    border-radius: 0px 30px 0px 0px;
   }
   
   .sidebar.open {
@@ -93,7 +94,7 @@
     }
   
     .sidebar.open .sidebar-toggle {
-      left: 250px; /* Adjust the left value based on your needs */
+      left: 250px; 
     }
   }
   

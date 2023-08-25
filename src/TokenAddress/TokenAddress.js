@@ -13,16 +13,19 @@ const TokenAddress = () => {
       const response = await axios.get(
         `https://api.dexscreener.com/latest/dex/tokens/${query}`
       );
-      // Sort pairs by price in descending order
-      const sortedPairs = response.data.pairs.sort(
-        (a, b) => parseFloat(b.priceUsd) - parseFloat(a.priceUsd)
-      );
+      if (response?.data?.pairs) {
+        const sortedPairs = response.data.pairs.sort(
+          (a, b) => parseFloat(b.priceUsd) - parseFloat(a.priceUsd)
+        );
 
-      // Limit the pairs to at most 10
-      const limitedPairs = sortedPairs.slice(0, 10);
+        const limitedPairs = sortedPairs.slice(0, 10);
 
-      setData(limitedPairs);
-      setIsSuccess(true);
+        setData(limitedPairs);
+        setIsSuccess(true);
+      } else {
+        alert("Pairs not available in the response.");
+        setIsSuccess(false);
+      }
     } catch (error) {
       console.error("Error fetching data:", error);
       setData([]);
@@ -33,8 +36,8 @@ const TokenAddress = () => {
   return (
     <div className="content">
       <h1>Token Address Page</h1>
-      <SearchComponent onSearch={handleTokenSearch} />
-      <div >
+      <SearchComponent onSearch={handleTokenSearch} isSuccess={isSuccess} />
+      <div>
         {isSuccess && data.length > 0 ? (
           <>
             <h1>Token Address search result</h1>

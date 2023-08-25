@@ -3,26 +3,36 @@ import React, { useState } from "react";
 import "./SearchComponent.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
-const SearchComponent = ({ onSearch }) => {
+const SearchComponent = ({ onSearch, isSuccess }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearch = () => {
-    onSearch(searchQuery);
+    if (!isSuccess) onSearch(searchQuery);
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        placeholder="Search"
+    <div className="search-content">
+      <div>
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Search"
+        />
+        <button onClick={handleSearch}>
+          <FontAwesomeIcon icon={faSearch} />
+          Search
+        </button>
+      </div>
+      <ConnectButton
+        label="Connect"
+        accountStatus={{
+          smallScreen: "avatar",
+          largeScreen: "full",
+        }}
       />
-      <button onClick={handleSearch}>
-        <FontAwesomeIcon icon={faSearch} />
-        Search
-      </button>
     </div>
   );
 };

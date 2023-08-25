@@ -12,4 +12,10 @@ button{
     border-radius: 20px;
     width: 100px;
     border: none;
+    cursor: pointer;
+}
+
+.search-content{
+    display: flex ;   /*flexbox*/
+    justify-content: space-between;
 }
