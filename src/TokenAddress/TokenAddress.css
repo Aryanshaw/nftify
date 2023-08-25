@@ -1,0 +1,17 @@
+.content {
+  /* background-color: #eb790ff2; */
+  padding: 20px;
+  margin-left: 250px; 
+  height: 100vh;
+}
+.card-results {
+  margin-top: 20px; /* Add some spacing between h1 and card results */
+}
+
+
+@media (max-width: 768px) {
+  .content {
+    margin-left: 0; 
+    padding: 10px; 
+  }
+}

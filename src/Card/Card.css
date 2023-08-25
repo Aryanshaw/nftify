@@ -1,0 +1,24 @@
+
+.token-card {
+  border: 1px solid #ccc;
+  padding: 40px;
+  margin: 10px;
+  width: calc(25% - 20px);
+  display: inline-block; 
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: rgb(68, 0, 128);
+}
+
+.token-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.token-card-content {
+  margin-top: 10px;
+}
+.token-card-text{
+  color: white;
+}
